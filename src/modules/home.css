@@ -6,7 +6,7 @@
 
 img.home-img {
     width: 400px;
-    height: 650px;
+    height: 600px;
     border-radius: 6px;
 }
 
@@ -39,4 +39,64 @@ button.home-btn {
     border: none;
     border-radius: 6px;
     cursor: pointer;
+}
+
+/* ================= CAROUSEL ================= */
+
+.container {
+    width: 950px;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-view {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    padding: 1rem;
+}
+
+.item-list {
+    width: 700px;
+
+    display: flex;
+    flex-direction: row;
+    gap: 3.5rem;
+
+    scroll-behavior: smooth;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.item-list::-webkit-scrollbar {
+    display: none;
+}
+
+.item-card {
+    scroll-snap-align: center;
+    background-color: red;
+
+    min-width: 600px;
+    height: 150px;
+
+    padding: 1rem;
+}
+
+.item-card:first-of-type {
+    margin-left: 3rem;
+}
+
+.item-card:last-of-type {
+    margin-right: 3rem;
+}
+
+.carousel-view button {
+    width: 2rem;
+    height: 2rem;
+
+    border-radius: 50%;
 }

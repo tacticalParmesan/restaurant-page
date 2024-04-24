@@ -1,4 +1,4 @@
-export function createElement({type = "div", classes, text, src, parent} = {}) {
+export function createElement({type = "div", id, classes, text, src, parent} = {}) {
     const newElement = document.createElement(type);
     
     if(Array.isArray(classes)) {
@@ -7,6 +7,7 @@ export function createElement({type = "div", classes, text, src, parent} = {}) {
         newElement.classList.add(classes)
     }
 
+    if(id) newElement.id = id;
     if(type === "img" && src) newElement.setAttribute("src", src)
     if(text) newElement.textContent = text;
     if(parent) parent.append(newElement)

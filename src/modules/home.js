@@ -1,7 +1,7 @@
 import { createElement } from "../utility.js";
 import "./home.css"
 
-export function Home() {
+export function Home(body, content) {
 	const homePage = createElement({ classes: ["home-page"], parent: content });
 	const textPanel = createElement({
 		classes: ["home-text-panel"],
@@ -48,5 +48,46 @@ export function Home() {
         classes: ["home-menu-btn", "home-btn"],
         text: "Make a reservation",
         parent: btnsContainer
+    })
+
+    createCarousel(body);
+}
+
+function createCarousel(body) {
+    const carouselCtn = createElement({
+        classes: ["container"],
+        parent: body
+    })
+
+    const carouselView = createElement({
+        classes: ["carousel-view"],
+        parent: carouselCtn
+    })
+
+    const previousBtn = createElement({
+        type: "button",
+        id: "prev-btn",
+        text: "<",
+        parent: carouselView 
+    })
+
+    const itemList = createElement({
+        classes: ["item-list"],
+        parent: carouselView
+    })
+
+    for (let i = 0; i < 5; i++) {
+        createElement({
+            classes: ["item-card"],
+            text: "Review n." + i,
+            parent: itemList
+        })
+    }
+
+    const nextBtn = createElement({
+        type: "button",
+        id: "next-btn",
+        text: ">",
+        parent: carouselView 
     })
 }
