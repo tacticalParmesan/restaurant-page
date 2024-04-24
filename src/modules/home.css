@@ -1,0 +1,42 @@
+.home-page {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+img.home-img {
+    width: 400px;
+    height: 650px;
+    border-radius: 6px;
+}
+
+.home-text-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.welcome-msg {
+    width: 30ch;
+    font-size: 2rem;
+}
+
+.welcome-text {
+    width: 60ch;
+    text-align: justify;
+}
+
+.buttons-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+button.home-btn {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
