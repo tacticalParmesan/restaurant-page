@@ -31,5 +31,9 @@ module.exports = {
     optimization: {
         runtimeChunk: "single"
     },
-    target: "web"
+    target: "web",
+    watchOptions: {
+        ignored: /node_modules/, // Exclude node_modules directory from watching
+        poll: 1000, // Check for changes every 1000 milliseconds (1 second)
+    },
 }

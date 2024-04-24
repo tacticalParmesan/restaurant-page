@@ -1,4 +1,5 @@
 import { createElement } from "../utility.js";
+import "./home.css"
 
 export function Home() {
 	const homePage = createElement({ classes: ["home-page"], parent: content });
