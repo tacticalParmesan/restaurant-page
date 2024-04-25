@@ -1,4 +1,4 @@
-import { createElement } from "../utility.js";
+import { createElement } from "../../utility.js";
 import "./home.css"
 
 const homeData = function() {
@@ -105,7 +105,7 @@ function createCarousel(page) {
     const previousBtn = createElement({
         type: "button",
         id: "prev-btn",
-        text: "<",
+        text: "◀",
         parent: carouselView 
     })
 
@@ -117,7 +117,7 @@ function createCarousel(page) {
     const nextBtn = createElement({
         type: "button",
         id: "next-btn",
-        text: ">",
+        text: "▶",
         parent: carouselView 
     });
 

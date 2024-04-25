@@ -1,6 +1,6 @@
 import { createElement } from "./utility.js";
-import { Home } from "./modules/home.js";
-import { About } from "./modules/about.js";
+import { Home } from "./modules/home/home.js";
+import { About } from "./modules/about/about.js";
 import "./style.css";
 
 const PageRouter = function() {
