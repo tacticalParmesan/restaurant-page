@@ -44,7 +44,8 @@ nav {
 
     background: 
     linear-gradient(90deg, var(--mint-green) 0%, var(--outremer-blue) 50%, var(--traffic-red) 100%);
-        
+    
+    background-clip: border-box;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent
 }

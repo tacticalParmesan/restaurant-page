@@ -6,6 +6,7 @@ module.exports = {
     entry: "./src/index.js",
     devtool: "inline-source-map",
     devServer: {
+        static: "./dist",
         port: 8082,
         liveReload: true,
         hot: true

@@ -1,7 +1,7 @@
 import { createElement } from "../utility.js";
 import "./home.css"
 
-export function Home(body, content) {
+export function Home(content) {
 	const homePage = createElement({ classes: ["home-page"], parent: content });
     
     const upperHome = createElement({
@@ -58,7 +58,7 @@ export function Home(body, content) {
         parent: btnsContainer
     })
 
-    createCarousel(homePage);
+    createCarousel(homePage)
 }
 
 function createCarousel(page) {
@@ -92,6 +92,7 @@ function createCarousel(page) {
     });
 
     ReviewsCarousel();
+
 }
 
 const ReviewsCarousel = function() {
