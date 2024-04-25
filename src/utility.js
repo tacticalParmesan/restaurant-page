@@ -8,7 +8,7 @@ export function createElement({type = "div", id, classes, text, src, parent} = {
     }
 
     if(id) newElement.id = id;
-    if(type === "img" && src) newElement.setAttribute("src", src)
+    if(type === "img" || type === "iframe" && src) newElement.setAttribute("src", src)
     if(text) newElement.textContent = text;
     if(parent) parent.append(newElement)
 

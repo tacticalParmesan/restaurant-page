@@ -1,12 +1,13 @@
 import { createElement } from "./utility.js";
 import { Home } from "./modules/home.js";
+import { About } from "./modules/about.js";
 import "./style.css";
 
 const content = document.querySelector("#content");
 const body = document.querySelector("body");
 
 document.addEventListener("DOMContentLoaded", () => {
-	Home(content);
+	About(content);
 	footer();
 });
 

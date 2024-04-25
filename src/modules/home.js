@@ -1,6 +1,40 @@
 import { createElement } from "../utility.js";
 import "./home.css"
 
+const homeData = function() {
+    const welcomeText =
+    "Welcome to RetroBar, where nostalgia meets nightlife in a symphony of pixels and pixels. Nestled in the heart of the city, RetroBar offers a unique experience marrying classic arcade gaming with a vibrant bar atmosphere. Step into a world where Pac-Man chomps alongside your cocktails and Space Invaders provide the backdrop to your night out.";
+
+    const reviews = {
+        reviewOne: {
+            customer: "Adam",
+            reviewText: "Had a blast at RetroBar! The selection of arcade games is amazing, brought back so many memories. Spent hours playing classics like Pac-Man and Mario. Can't wait to come back and beat my high score!" 
+        },
+        reviewTwo: {
+            customer: "Daisuke",
+            reviewText: "RetroBar serves up some seriously delicious themed drinks! The Sonic Spritz was a refreshing hit, and the Pikachu Punch packed a real electrifying punch. Perfect way to level up your night out!",
+        },
+        reviewThree: {
+            customer: "Aurora",
+            reviewText: "Forget bar snacks, RetroBar's food is next level! The burgers were juicy, the fries crispy, and don't even get me started on the loaded nachos. A tasty fuel for all those intense gaming sessions!" 
+        },
+        reviewFour: {
+            customer: "Liam",
+            reviewText: "Located right in the heart of the city, RetroBar is so convenient! Easy to find and perfect for meeting up with friends. Plus, being central means you can explore more of the city after your gaming fix!" 
+        },
+        reviewFive: {
+            customer: "Tyron",
+            reviewText: "Stepping into RetroBar feels like a trip back in time! The retro decor and cozy atmosphere create the perfect ambiance for gaming nostalgia. It's like being transported to the '80s, but with better drinks!" 
+        },
+        reviewSix: {
+            customer: "Bethany",
+            reviewText: "Huge shoutout to the staff at RetroBar! Their passion and expertise for retro games are unmatched. From recommending the best games to offering tips and tricks, they truly enhance the gaming experience. Top-notch service with a smile!" 
+        },
+    }
+
+    return {welcomeText, reviews}
+}();
+
 export function Home(content) {
 	const homePage = createElement({ classes: ["home-page"], parent: content });
     
@@ -14,10 +48,6 @@ export function Home(content) {
 		parent: upperHome,
 	});
 
-	const welcomeText =
-		"Welcome to RetroBar, where nostalgia meets nightlife in a symphony of pixels and pixels. Nestled in the heart of the city, RetroBar offers a unique experience marrying classic arcade gaming with a vibrant bar atmosphere. Step into a world where Pac-Man chomps alongside your cocktails and Space Invaders provide the backdrop to your night out.";
-	
-
     createElement({
 		type: "h2",
 		classes: ["welcome-msg"],
@@ -28,7 +58,7 @@ export function Home(content) {
 	createElement({
 		type: "p",
 		classes: ["welcome-text"],
-		text: welcomeText,
+		text: homeData.welcomeText,
 		parent: textPanel,
 	});
 
@@ -97,33 +127,6 @@ function createCarousel(page) {
 
 const ReviewsCarousel = function() {
 
-    const reviews = {
-        reviewOne: {
-            customer: "Adam",
-            reviewText: "Had a blast at RetroBar! The selection of arcade games is amazing, brought back so many memories. Spent hours playing classics like Pac-Man and Mario. Can't wait to come back and beat my high score!" 
-        },
-        reviewTwo: {
-            customer: "Daisuke",
-            reviewText: "RetroBar serves up some seriously delicious themed drinks! The Sonic Spritz was a refreshing hit, and the Pikachu Punch packed a real electrifying punch. Perfect way to level up your night out!",
-        },
-        reviewThree: {
-            customer: "Aurora",
-            reviewText: "Forget bar snacks, RetroBar's food is next level! The burgers were juicy, the fries crispy, and don't even get me started on the loaded nachos. A tasty fuel for all those intense gaming sessions!" 
-        },
-        reviewFour: {
-            customer: "Liam",
-            reviewText: "Located right in the heart of the city, RetroBar is so convenient! Easy to find and perfect for meeting up with friends. Plus, being central means you can explore more of the city after your gaming fix!" 
-        },
-        reviewFive: {
-            customer: "Tyron",
-            reviewText: "Stepping into RetroBar feels like a trip back in time! The retro decor and cozy atmosphere create the perfect ambiance for gaming nostalgia. It's like being transported to the '80s, but with better drinks!" 
-        },
-        reviewSix: {
-            customer: "Bethany",
-            reviewText: "Huge shoutout to the staff at RetroBar! Their passion and expertise for retro games are unmatched. From recommending the best games to offering tips and tricks, they truly enhance the gaming experience. Top-notch service with a smile!" 
-        },
-    }
-
     const prevBtn = document.querySelector("#prev-btn");
     const nextBtn = document.querySelector("#next-btn");
     const itemList = document.querySelector(".item-list");
@@ -140,11 +143,11 @@ const ReviewsCarousel = function() {
         itemList.scrollLeft += scrollValue
     });
 
-    for (let r in reviews) {
-        const review = reviews[r]
+    for (let r in homeData.reviews) {
+        const review = homeData.reviews[r]
         createElement({
             classes: ["item-card"],
-            text: review.reviewText + "     " + "- " + review.customer,
+            text: "✪✪✪✪✪ " + review.reviewText + "     " + "- " + review.customer,
             parent: itemList
         })
     }
