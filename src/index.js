@@ -1,21 +1,26 @@
 import { createElement } from "./utility.js";
 import { Home } from "./modules/home/home.js";
 import { About } from "./modules/about/about.js";
+import { Contact } from "./modules/contact/contact.js";
+import { Menu } from "./modules/menu/menu.js";
 import "./style.css";
 
-const PageRouter = function() {
-	const content = document.querySelector("#content");
-	const body = document.querySelector("body");
-	const pages = {
-		"Home": () => Home(content),
-		"About": () => About(content)
-	}
+export const PageRouter = function() {
 
+	const contentArea = document.querySelector("#content");
+	const body = document.querySelector("body");
+
+	const pages = {
+		"Home": () => Home(contentArea),
+		"About": () => About(contentArea),
+		"Menu": () => Menu(contentArea),
+		"Contact": () => Contact(contentArea)
+	}
 
 	function loadLanding() {
 		document.addEventListener("DOMContentLoaded", () => {
 			loadTabSwitching();
-			Home(content);
+			Home(contentArea);
 			footer();
 		});
 	}
@@ -26,7 +31,7 @@ const PageRouter = function() {
 	}
 
 	function wipePage() {
-		content.removeChild(content.firstChild);
+		contentArea.removeChild(contentArea.firstChild);
 	}
 
 	function loadTabSwitching() {
@@ -45,7 +50,7 @@ const PageRouter = function() {
 		parent: body,
 	});
 
-	return {loadLanding, wipePage}
+	return {loadLanding, switchPage}
 }();
 
 PageRouter.loadLanding()
