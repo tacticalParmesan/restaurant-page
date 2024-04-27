@@ -1,6 +1,9 @@
 import { createElement } from "../../utility.js";
 import { Carousel } from "../../components/carousel.js";
 import { Card } from "../../components/card.js";
+import foodData from "./food.json";
+import drinksData from "./drinks.json";
+import gamesData from "./games.json";
 import "./menu.css";
 
 export function Menu(content) {
@@ -19,8 +22,12 @@ export function Menu(content) {
 		text: "Food selection",
 		parent: menuPage,
 	});
-	const foodCarousel = Carousel(menuPage, "menu", () =>
-		console.log("Data loaded"), 830
+
+	const foodCarousel = Carousel(
+		menuPage,
+		"menu",
+		(list) => loadData(list, foodData),
+		265
 	);
 
 	const drinksTitle = createElement({
@@ -29,48 +36,38 @@ export function Menu(content) {
 		text: "Drinks selection",
 		parent: menuPage,
 	});
-	const drinksCarousel = Carousel(menuPage, "menu", () =>
-		console.log("Data loaded"), 830
+
+	const drinksCarousel = Carousel(
+		menuPage,
+		"menu",
+		(list) => loadData(list, drinksData),
+		265
 	);
 
 	const gamesTitle = createElement({
 		type: "h2",
 		classes: ["games-menu", "info-title"],
-		text: "Games selection",
+		text: "Consoles selection",
 		parent: menuPage,
 	});
 
-	const gamesCarousel = Carousel(menuPage, "menu", () =>
-		console.log("Data loaded"), 830
+	const gamesCarousel = Carousel(
+		menuPage,
+		"menu",
+		(list) => loadData(list, gamesData),
+		265
 	);
+}
 
-	for (let i = 0; i < 10; i++) {
+function loadData(list, data) {
+	for (const item in data) {
+		const cardData = data[item];
 		Card(
-			foodCarousel,
-			"https://images.unsplash.com/photo-1598182198871-d3f4ab4fd181?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-			"Mario Burger",
-			"Italian Cheese, fine ground beef and salty bacon will make you jump on a thousand turtles!",
-			"9£"
-		);
-	}
-
-	for (let i = 0; i < 10; i++) {
-		Card(
-			drinksCarousel,
-			"https://images.unsplash.com/photo-1598182198871-d3f4ab4fd181?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-			"Mario Burger",
-			"Italian Cheese, fine ground beef and salty bacon will make you jump on a thousand turtles!",
-			"9£"
-		);
-	}
-
-	for (let i = 0; i < 10; i++) {
-		Card(
-			gamesCarousel,
-			"https://images.unsplash.com/photo-1598182198871-d3f4ab4fd181?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-			"Mario Burger",
-			"Italian Cheese, fine ground beef and salty bacon will make you jump on a thousand turtles!",
-			"9£"
+			list,
+			cardData.imgUrl,
+			cardData.name,
+			cardData.info,
+			cardData.cost + "£"
 		);
 	}
 }
