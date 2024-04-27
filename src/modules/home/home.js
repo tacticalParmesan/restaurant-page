@@ -1,5 +1,6 @@
 import { createElement } from "../../utility.js";
 import { PageRouter } from "../../index.js";
+import { Carousel } from "../../components/carousel.js";
 import "./home.css";
 
 const homeData = (function () {
@@ -39,7 +40,18 @@ const homeData = (function () {
 		},
 	};
 
-	return { welcomeText, reviews };
+	const loadReviews = function (itemList) {
+		for (let r in homeData.reviews) {
+			const review = homeData.reviews[r];
+			createElement({
+				classes: ["item-card"],
+				text: "✪✪✪✪✪ " + review.reviewText + "     " + "- " + review.customer,
+				parent: itemList,
+			});
+		}
+	};
+
+	return { welcomeText, reviews, loadReviews };
 })();
 
 export function Home(content) {
@@ -95,69 +107,9 @@ export function Home(content) {
 		parent: btnsContainer,
 	});
 
-	createCarousel(homePage);
+	Carousel(homePage, "home", homeData.loadReviews, 600);
 	loadButtonsFunctionality();
 }
-
-function createCarousel(page) {
-	const carouselCtn = createElement({
-		classes: ["container"],
-		parent: page,
-	});
-
-	const carouselView = createElement({
-		classes: ["carousel-view"],
-		parent: carouselCtn,
-	});
-
-	const previousBtn = createElement({
-		type: "button",
-		id: "prev-btn",
-		text: "◀",
-		parent: carouselView,
-	});
-
-	const itemList = createElement({
-		classes: ["item-list"],
-		parent: carouselView,
-	});
-
-	const nextBtn = createElement({
-		type: "button",
-		id: "next-btn",
-		text: "▶",
-		parent: carouselView,
-	});
-
-	ReviewsCarousel();
-}
-
-const ReviewsCarousel = function () {
-	const prevBtn = document.querySelector("#prev-btn");
-	const nextBtn = document.querySelector("#next-btn");
-	const itemList = document.querySelector(".item-list");
-
-	const itemWidth = 600;
-	const padding = 16;
-	const scrollValue = itemWidth + padding;
-
-	prevBtn.addEventListener("mousedown", () => {
-		itemList.scrollLeft -= scrollValue;
-	});
-
-	nextBtn.addEventListener("mousedown", () => {
-		itemList.scrollLeft += scrollValue;
-	});
-
-	for (let r in homeData.reviews) {
-		const review = homeData.reviews[r];
-		createElement({
-			classes: ["item-card"],
-			text: "✪✪✪✪✪ " + review.reviewText + "     " + "- " + review.customer,
-			parent: itemList,
-		});
-	}
-};
 
 function loadButtonsFunctionality() {
 	const homeMenuButton = document.querySelector(".home-menu-btn");
