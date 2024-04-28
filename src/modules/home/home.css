@@ -12,7 +12,6 @@ img.home-img {
     width: 400px;
     height: 600px;
     border-radius: 6px;
-    image-rendering: pixelated;
 }
 
 .upper-part {
@@ -65,7 +64,7 @@ button.home-btn {
     background-color: var(--outremer-blue);
 }
 
-/* Carousel override fro specific content */
+/* Carousel override for specific content */
 .item-card{
     min-width: 600px;
     height: 150px;
