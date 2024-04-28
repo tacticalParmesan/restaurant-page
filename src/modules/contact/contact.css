@@ -1,0 +1,66 @@
+.contact-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    height: 90%;
+}
+
+.contact-info-container > * {
+   text-align: center;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message-title {
+    text-align: center;
+}
+
+.send-message-form {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 300px;
+    gap: 1rem;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    min-width: 300px;
+}
+
+.sender-message-text {
+    width: 316px;
+    height: 400px;
+}
+
+input, textarea {
+    padding: 0.5rem;
+    border: 1px solid var(--body-gray);
+    border-radius: 6px;
+}
+
+form input[type="button"] {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 1px 2px 1px var(--body-gray);
+    background-color: var(--mint-green);
+}
+
+  

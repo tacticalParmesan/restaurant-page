@@ -20,7 +20,7 @@ export const PageRouter = function() {
 	function loadLanding() {
 		document.addEventListener("DOMContentLoaded", () => {
 			loadTabSwitching();
-			Menu(contentArea);
+			Contact(contentArea);
 			footer();
 		});
 	}
